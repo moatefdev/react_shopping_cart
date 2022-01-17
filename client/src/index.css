@@ -19,13 +19,3 @@
 main {
   grid-area: main;
 }
-
-footer {
-  grid-area: footer;
-  background-color: #2a5ea5;
-  color: #fff;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  font-size: 20px;
-}
