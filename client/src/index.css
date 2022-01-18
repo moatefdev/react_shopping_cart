@@ -19,3 +19,16 @@
 main {
   grid-area: main;
 }
+
+.wrapper {
+  display: flex;
+  justify-content: space-between;
+}
+
+.wrapper__products {
+  width: 70%;
+}
+
+.wrapper__filter {
+  width: 30%;
+}
