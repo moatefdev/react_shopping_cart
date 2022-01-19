@@ -23,12 +23,13 @@ main {
 .wrapper {
   display: flex;
   justify-content: space-between;
+  padding: 30px;
 }
 
-.wrapper__products {
-  width: 70%;
+.wrapper .products-wrapper {
+  width: 68%;
 }
 
-.wrapper__filter {
+.wrapper .filter-wrapper {
   width: 30%;
 }

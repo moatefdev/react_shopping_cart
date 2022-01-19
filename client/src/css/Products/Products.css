@@ -1,24 +1,23 @@
-.products {
+.products-wrapper {
   display: flex;
   justify-content: space-between;
-  padding: 30px;
 }
-.products .products__item {
+.products-wrapper .products__item {
   width: 23%;
 }
-.products .products__item img {
+.products-wrapper .products__item img {
   width: 100%;
   height: 150px;
   padding: 3px;
   border: 1px solid #c0c0c0;
 }
-.products .products__item .products__info {
+.products-wrapper .products__item .products__info {
   display: flex;
   justify-content: space-between;
   align-items: center;
   margin: 20px 0;
 }
-.products .products__item button {
+.products-wrapper .products__item button {
   display: block;
   width: 100%;
   border: 0;
