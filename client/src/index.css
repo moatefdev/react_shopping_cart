@@ -23,12 +23,9 @@ main {
 .wrapper {
   display: flex;
   justify-content: space-between;
+  padding: 30px;
 }
 
 .wrapper__products {
   width: 70%;
-}
-
-.wrapper__filter {
-  width: 30%;
 }
