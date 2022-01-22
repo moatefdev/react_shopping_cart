@@ -19,7 +19,9 @@ function Filter(props) {
   return (
     <div className="filter-wrapper">
       <h2 className="filter__title">Filter</h2>
-      <div className="num-of-products">Number of products</div>
+      <div className="num-of-products">
+        Number of products: {props.productsNumber}
+      </div>
       <div className="filter__size">
         <p>Filter</p>
         <select
@@ -27,20 +29,20 @@ function Filter(props) {
           onChange={props.handleFilterBySize}
           value={props.size}
         >
-          <option value="ALL">ALL</option>
+          {/* <option value="ALL">ALL</option>
           <option value="XS">XS</option>
           <option value="S">S</option>
           <option value="M">M</option>
           <option value="L">L</option>
           <option value="XL">XL</option>
-          <option value="XXL">XXL</option>
-          {/* {sizes.map((size, index) => {
+          <option value="XXL">XXL</option> */}
+          {sizes.map((size, index) => {
             return (
               <option key={index} value={size}>
                 {size}
               </option>
             );
-          })} */}
+          })}
         </select>
       </div>
       <div className="filter__size">
