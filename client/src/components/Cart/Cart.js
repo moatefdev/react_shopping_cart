@@ -3,6 +3,7 @@ import React, { useState } from "react";
 import "../../css/Cart/Cart.css";
 import "../../css/CheckoutForm/CheckoutForm.css";
 import CheckoutForm from "../CheckoutForm/CheckoutForm";
+import { Bounce } from "react-reveal";
 
 function Cart(props) {
   const [showForm, setShowForm] = useState(false);
@@ -24,25 +25,27 @@ function Cart(props) {
           <p>There is {props.cartItems.length} products in cart</p>
         )}
       </div>
-      <div className="cart__items">
-        {props.cartItems.map((item) => {
-          return (
-            <div className="cart__items__item" key={item.id}>
-              <img src={item.imageUrl} alt="" />
-              <div className="cart__item__info">
-                <div>
-                  <p>Title: {item.title}</p>
-                  <p>Quantity: {item.qty}</p>
-                  <p>Price: ${item.price * item.qty}</p>
+      <Bounce left cascade>
+        <div className="cart__items">
+          {props.cartItems.map((item) => {
+            return (
+              <div className="cart__items__item" key={item.id}>
+                <img src={item.imageUrl} alt="" />
+                <div className="cart__item__info">
+                  <div>
+                    <p>Title: {item.title}</p>
+                    <p>Quantity: {item.qty}</p>
+                    <p>Price: ${item.price * item.qty}</p>
+                  </div>
+                  <button onClick={() => props.removeFromCart(item)}>
+                    Remove
+                  </button>
                 </div>
-                <button onClick={() => props.removeFromCart(item)}>
-                  Remove
-                </button>
               </div>
-            </div>
-          );
-        })}
-      </div>
+            );
+          })}
+        </div>
+      </Bounce>
       {props.cartItems.length !== 0 && (
         <div className="cart__footer">
           <span className="total">

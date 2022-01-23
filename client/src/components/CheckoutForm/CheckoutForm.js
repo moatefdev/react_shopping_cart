@@ -1,6 +1,7 @@
 import React from "react";
 import Input from "../Input/Input";
 import { words } from "../../words";
+import { Zoom } from "react-reveal";
 
 function CheckoutForm(props) {
   const submitOrder = (e) => {
@@ -19,23 +20,25 @@ function CheckoutForm(props) {
           <span className="close-icon" onClick={() => props.setShowForm(false)}>
             &times;
           </span>
-          <form onSubmit={submitOrder}>
-            <Input
-              label={words.name}
-              type="text"
-              name="name"
-              onChange={props.handleChange}
-            />
-            <Input
-              label="Email"
-              type="email"
-              onChange={props.handleChange}
-              name="email"
-            />
-            <div>
-              <button type="submit">Checkout</button>
-            </div>
-          </form>
+          <Zoom>
+            <form onSubmit={submitOrder}>
+              <Input
+                label={words.name}
+                type="text"
+                name="name"
+                onChange={props.handleChange}
+              />
+              <Input
+                label="Email"
+                type="email"
+                onChange={props.handleChange}
+                name="email"
+              />
+              <div>
+                <button type="submit">Checkout</button>
+              </div>
+            </form>
+          </Zoom>
         </div>
       )}
     </>
