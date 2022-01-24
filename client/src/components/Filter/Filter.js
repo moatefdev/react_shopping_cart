@@ -31,13 +31,7 @@ function Filter(props) {
             onChange={props.handleFilterBySize}
             value={props.size}
           >
-            {/* <option value="ALL">ALL</option>
-          <option value="XS">XS</option>
-          <option value="S">S</option>
-          <option value="M">M</option>
-          <option value="L">L</option>
-          <option value="XL">XL</option>
-          <option value="XXL">XXL</option> */}
+            <option value="all">All</option>
             {sizes.map((size, index) => {
               return (
                 <option key={index} value={size}>

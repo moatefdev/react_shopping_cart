@@ -18,7 +18,7 @@ function App() {
   const handleFilterBySize = (e) => {
     console.log(e.target.value);
     setSize(e.target.value);
-    if (e.target.value == "ALL") {
+    if (e.target.value == "all") {
       setProducts(data);
     } else {
       let productsClone = data;
