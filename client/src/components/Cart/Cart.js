@@ -18,11 +18,9 @@ function Cart(props) {
       email: value.email,
     };
     setOrder(order);
-    // props.createOrder(order);
   };
 
   const closeModal = () => {
-    // props.clearOrder();
     setOrder(false);
     setShowForm(false);
   };
