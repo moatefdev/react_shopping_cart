@@ -5,7 +5,7 @@ function ProductModal(props) {
   const { product, closeModal } = props;
 
   return (
-    <Modal isOpen={product} onRequestClose={closeModal}>
+    <Modal isOpen={product ? true : false} onRequestClose={closeModal}>
       <span className="close-icon" onClick={closeModal}>
         &times;
       </span>

@@ -1,13 +1,15 @@
-.checkout {
+.checkout-form {
   position: fixed;
   bottom: 0;
   left: 0;
   width: 100%;
-  background-color: #ddd;
   padding: 30px;
+  background-color: #ddd;
+
   form {
     width: 60%;
     margin: auto;
+
     > div {
       display: flex;
       flex-direction: column;
@@ -15,15 +17,12 @@
     }
     input {
       height: 40px;
-      border: 1px solid #c0c0c0;
-      border-radius: 4px;
-      margin-top: 5px;
       padding: 5px;
+      border: 1px solid #c0c0c0;
     }
     button {
-      height: 40px;
-      border: 1px solid #c0c0c0;
       cursor: pointer;
+      height: 40px;
     }
   }
   .close-icon {
@@ -32,13 +31,5 @@
     top: 10px;
     font-size: 20px;
     cursor: pointer;
-    background-color: #000;
-    color: #fff;
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 30px;
-    height: 30px;
   }
 }
