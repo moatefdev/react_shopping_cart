@@ -1,27 +1,19 @@
 import React from "react";
+import "./../../css/CheckoutForm/CheckoutForm.css";
 import Input from "../Input/Input";
+import Zoom from "react-reveal/Zoom";
 import { words } from "../../words";
-import { Zoom } from "react-reveal";
-
-function CheckoutForm(props) {
-  const submitOrder = (e) => {
-    e.preventDefault();
-    const order = {
-      name: props.value.name,
-      email: props.value.email,
-    };
-    console.log(order);
-  };
-
+function Checkout(props) {
   return (
     <>
       {props.showForm && (
-        <div className="checkout">
+        <div className="checkout-form">
           <span className="close-icon" onClick={() => props.setShowForm(false)}>
-            &times;
+            {" "}
+            &times;{" "}
           </span>
-          <Zoom>
-            <form onSubmit={submitOrder}>
+          <Zoom left>
+            <form onSubmit={props.submitOrder}>
               <Input
                 label={words.name}
                 type="text"
@@ -34,8 +26,9 @@ function CheckoutForm(props) {
                 onChange={props.handleChange}
                 name="email"
               />
+
               <div>
-                <button type="submit">Checkout</button>
+                <button type="submit"> {words.checkout} </button>
               </div>
             </form>
           </Zoom>
@@ -45,4 +38,4 @@ function CheckoutForm(props) {
   );
 }
 
-export default CheckoutForm;
+export default Checkout;

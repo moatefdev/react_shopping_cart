@@ -1,43 +1,86 @@
-.cart {
+.cart-wrapper {
   width: 70%;
   margin: 20px auto;
-  .cart__title {
-    border-bottom: 1px solid #333;
-    padding-bottom: 5px;
+}
+
+.cart-title {
+  padding-bottom: 5px;
+  border-bottom: 1px solid #333;
+}
+
+.cart-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px;
+  box-shadow: 2px 2px 3px #c0c0c0;
+  margin: 6px 0;
+
+  img {
+    width: 80px;
+    margin-right: 10px;
   }
-  .cart__items__item {
+
+  .cart-info {
     display: flex;
     justify-content: space-between;
     align-items: center;
+    flex: 1;
+  }
+}
+.cart-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 30px 0;
+
+  .total {
+    font-size: 25px;
+  }
+}
+
+button {
+  display: inline-block;
+  border: 0;
+  background: #2a5ea5;
+  color: #fff;
+  padding: 7px;
+  border-radius: 6px;
+}
+
+.order-info {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  .alert-success {
+    background-color: green;
+    color: #fff;
     padding: 10px;
-    box-shadow: 2px 2px 3px #c0c0c0;
-    margin: 6px 0;
-    img {
-      width: 80px;
-      margin-right: 10px;
-    }
-    .cart__item__info {
+    text-align: center;
+    text-transform: capitalize;
+    margin-bottom: 20px;
+  }
+  .close-icon {
+    position: absolute;
+    right: 3px;
+    top: 3px;
+    cursor: pointer;
+    font-size: 20px;
+  }
+  table {
+    border: 1px solid #c0c0c0;
+    tr {
       display: flex;
       justify-content: space-between;
       align-items: center;
-      flex: 1;
+      border-bottom: 1px solid #c0c0c0;
+
+      &:last-of-type {
+        border-bottom: 0;
+      }
+      td {
+        padding: 10px;
+      }
     }
-  }
-  .cart__footer {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 30px 0;
-    .total {
-      font-size: 20px;
-    }
-  }
-  button {
-    display: inline-block;
-    border: 0;
-    background-color: #2a5ea5;
-    color: #fff;
-    padding: 7px;
-    border-radius: 4px;
   }
 }
