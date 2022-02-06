@@ -1,5 +1,5 @@
 const express = require("express");
-const Product = require("./../models/product");
+const Product = require("../models/product");
 const router = express.Router();
 
 router.get("/api/products", async (req, res) => {
