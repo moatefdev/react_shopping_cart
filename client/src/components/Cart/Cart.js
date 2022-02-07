@@ -3,12 +3,12 @@ import "./../../css/Cart/Cart.css";
 import Bounce from "react-reveal/Bounce";
 import { connect } from "react-redux";
 import { removeCart } from "../../store/actions/cart";
+import { createOrder, clearOrder } from "../../store/actions/orders";
 import OrderModal from "./OrderModal";
 import Checkout from "../CheckoutForm/CheckoutForm";
 
 function Cart(props) {
   const [showForm, setShowForm] = useState(false);
-  const [order, setOrder] = useState(false);
   const [value, setValue] = useState("");
 
   const submitOrder = (e) => {
@@ -17,11 +17,11 @@ function Cart(props) {
       name: value.name,
       email: value.email,
     };
-    setOrder(order);
+    props.createOrder(order);
   };
 
   const closeModal = () => {
-    setOrder(false);
+    props.clearOrder();
     setShowForm(false);
   };
 
@@ -44,7 +44,7 @@ function Cart(props) {
       {/* Modal */}
       <OrderModal
         cartItems={props.cartItems}
-        order={order}
+        order={props.order}
         closeModal={closeModal}
       />
       <Bounce bottom cascade>
@@ -54,9 +54,9 @@ function Cart(props) {
               <img src={item.imageUrl} alt="" />
               <div className="cart-info">
                 <div>
-                  <p> title {item.title} </p>
-                  <p> qty: {item.qty} </p>
-                  <p> price: ${item.price} </p>
+                  <p>title {item.title}</p>
+                  <p>qty: {item.qty}</p>
+                  <p>price: ${item.price * item.qty}</p>
                 </div>
                 <button onClick={() => props.removeCart(item)}>Remove</button>
               </div>
@@ -67,10 +67,10 @@ function Cart(props) {
       {props.cartItems.length !== 0 && (
         <div className="cart-footer">
           <div className="total">
-            Total : $
+            Total : ${props.cartItems.map((item) => console.log(item))}
             {props.cartItems.reduce((acc, p) => {
               return acc + p.price;
-            }, 0)}{" "}
+            }, 0)}
           </div>
           <button onClick={() => setShowForm(true)}> select products </button>
         </div>
@@ -90,9 +90,9 @@ function Cart(props) {
 export default connect(
   (state) => {
     return {
-      // order: state.order.order,
+      order: state.order.order,
       cartItems: state.cart.cartItems,
     };
   },
-  { removeCart }
+  { removeCart, createOrder, clearOrder }
 )(Cart);

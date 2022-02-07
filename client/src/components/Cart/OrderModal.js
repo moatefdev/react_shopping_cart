@@ -6,11 +6,10 @@ function OrderModal(props) {
   return (
     <>
       {order && (
-        <Modal isOpen={order} onRequestClose={closeModal}>
+        <Modal isOpen={order ? true : false} onRequestClose={closeModal}>
           <div className="order-info">
             <span className="close-icon" onClick={closeModal}>
-              {" "}
-              &times;{" "}
+              &times;
             </span>
             <p className="alert-success"> order done success </p>
             <table>
@@ -33,10 +32,10 @@ function OrderModal(props) {
               <tr>
                 <td>Selected Items:</td>
                 <td>
-                  {cartItems.map((p) => (
+                  {cartItems.map((item) => (
                     <div className="cart-data">
-                      <p>Number of this products: {p.qty}</p>
-                      <p>Title of products: {p.title}</p>
+                      <p>Number of this products: {item.qty}</p>
+                      <p>Title of products: {item.title}</p>
                     </div>
                   ))}
                 </td>
