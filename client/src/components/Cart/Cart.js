@@ -6,6 +6,7 @@ import { removeCart } from "../../store/actions/cart";
 import { createOrder, clearOrder } from "../../store/actions/orders";
 import OrderModal from "./OrderModal";
 import Checkout from "../CheckoutForm/CheckoutForm";
+import { words } from "../../words";
 
 function Cart(props) {
   const [showForm, setShowForm] = useState(false);
@@ -38,7 +39,9 @@ function Cart(props) {
         {props.cartItems.length === 0 ? (
           "Cart Empty"
         ) : (
-          <p>There is {props.cartItems.length} products in cart</p>
+          <p>
+            {words.cartHeader} {props.cartItems.length}
+          </p>
         )}
       </div>
       {/* Modal */}
@@ -54,11 +57,19 @@ function Cart(props) {
               <img src={item.imageUrl} alt="" />
               <div className="cart-info">
                 <div>
-                  <p>title {item.title}</p>
-                  <p>qty: {item.qty}</p>
-                  <p>price: ${item.price * item.qty}</p>
+                  <p>
+                    {words.cartTitle} {item.title}
+                  </p>
+                  <p>
+                    {words.cartQty} {item.qty}
+                  </p>
+                  <p>
+                    {words.cartPrice} ${item.price * item.qty}
+                  </p>
                 </div>
-                <button onClick={() => props.removeCart(item)}>Remove</button>
+                <button onClick={() => props.removeCart(item)}>
+                  {words.removeBtn}
+                </button>
               </div>
             </div>
           ))}
@@ -67,12 +78,14 @@ function Cart(props) {
       {props.cartItems.length !== 0 && (
         <div className="cart-footer">
           <div className="total">
-            Total : ${props.cartItems.map((item) => console.log(item))}
+            {words.total} ${props.cartItems.map((item) => console.log(item))}
             {props.cartItems.reduce((acc, p) => {
               return acc + p.price;
             }, 0)}
           </div>
-          <button onClick={() => setShowForm(true)}> select products </button>
+          <button onClick={() => setShowForm(true)}>
+            {words.selectProducts.toUpperCase()}
+          </button>
         </div>
       )}
 

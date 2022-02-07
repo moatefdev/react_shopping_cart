@@ -9,8 +9,7 @@ function Checkout(props) {
       {props.showForm && (
         <div className="checkout-form">
           <span className="close-icon" onClick={() => props.setShowForm(false)}>
-            {" "}
-            &times;{" "}
+            &times;
           </span>
           <Zoom left>
             <form onSubmit={props.submitOrder}>
@@ -21,7 +20,7 @@ function Checkout(props) {
                 onChange={props.handleChange}
               />
               <Input
-                label="Email"
+                label={words.email}
                 type="email"
                 onChange={props.handleChange}
                 name="email"
