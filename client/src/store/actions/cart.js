@@ -6,7 +6,7 @@ export const addToCart = (product) => {
     const cartItemsClone = [...cartItems];
     let isProductExists = false;
     cartItemsClone.forEach((p) => {
-      if (p._id == product._id) {
+      if (p._id === product._id) {
         p.qty++;
         isProductExists = true;
       }

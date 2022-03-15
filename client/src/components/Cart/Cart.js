@@ -11,6 +11,7 @@ import { words } from "../../words";
 function Cart(props) {
   const [showForm, setShowForm] = useState(false);
   const [value, setValue] = useState("");
+  let total = 0;
 
   const submitOrder = (e) => {
     e.preventDefault();
@@ -78,10 +79,10 @@ function Cart(props) {
       {props.cartItems.length !== 0 && (
         <div className="cart-footer">
           <div className="total">
-            {words.total} ${props.cartItems.map((item) => console.log(item))}
-            {props.cartItems.reduce((acc, p) => {
-              return acc + p.price;
-            }, 0)}
+            {props.cartItems.map((item) => {
+              total += item.qty * item.price;
+            })}
+            {words.total} ${total}
           </div>
           <button onClick={() => setShowForm(true)}>
             {words.selectProducts.toUpperCase()}
